@@ -1,0 +1,178 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111827;
+    color: #f3f4f6;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0b1120;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    border-bottom: 1px solid #1f2937;
+}
+
+.logo {
+    font-size: 2rem;
+    color: #a78bfa;
+}
+
+.navbar nav a {
+    color: #e5e7eb;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #a78bfa;
+}
+
+/* Home Page */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 80vh;
+}
+
+.hero-content {
+    max-width: 700px;
+    background-color: #1f2937;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #d1d5db;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #7c3aed;
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #6d28d9;
+}
+
+/* Planner Page */
+.planner-page {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.planner-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.planner-header h2 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.planner-header p {
+    color: #9ca3af;
+    font-size: 1rem;
+}
+
+/* Center the planner */
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered-planner {
+    width: 100%;
+}
+
+/* Card */
+.todo-card {
+    background-color: #1f2937;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.planner-form-card {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.todo-card h3 {
+    margin-bottom: 20px;
+    color: #a78bfa;
+}
+
+/* Form */
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-form input,
+.task-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    background-color: #111827;
+    color: #f3f4f6;
+    font-size: 1rem;
+    outline: none;
+}
+
+.task-form input::placeholder,
+.task-form textarea::placeholder {
+    color: #9ca3af;
+}
+
+.task-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0b1120;
+    border-top: 1px solid #1f2937;
+    color: #9ca3af;
+}
