@@ -4,7 +4,6 @@ import sqlite3
 BASE_DIR = Path(__file__).resolve().parents[1]
 DB_PATH = BASE_DIR / 'todo.db'
 SCHEMA_PATH = BASE_DIR / 'todo_schema.sql'
-SQLITE_HEADER = b'SQLite format 3\x00'        
 
 def get_connection() -> sqlite3.Connection: #this basically just means that the function is expected to return the sqlite3 connection
     conn = sqlite3.connect(DB_PATH)
