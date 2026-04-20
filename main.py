@@ -1,21 +1,29 @@
-from flask import Flask, jsonify
+from pathlib import Path
+from flask import Flask, jsonify, send_file
+
 from routes.tasks import tasks_bp
+
+BASE_DIR = Path(__file__).resolve().parent
 
 def create_app():
     app = Flask(__name__)
     app.register_blueprint(tasks_bp)
-
-    @app.get("/")
+    
+    @app.get('/')
     def home():
-        return "Tasking is running"
-
-    @app.get("/api/health")
-    def health():
-        return jsonify({"ok": True})
-
+        return send_file(BASE_DIR / 'templates' / 'Index.html', mimetype='text/html; charset=utf-8')
+    
+    @app.get('/index.html')
+    def link_home():
+        return send_file(BASE_DIR / 'templates' / 'Index.html', mimetype='text/html; charset=utf-8')
+    
+    @app.get('/planner.html')
+    def planner():
+        return send_file(BASE_DIR / 'templates' / 'planner.html', mimetype='text/html; charset=utf-8')
+    
     return app
-
+    
 app = create_app()
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug = True)
