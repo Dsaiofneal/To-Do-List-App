@@ -1,7 +1,7 @@
 from pathlib import Path
 import sqlite3
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parents[1]
 DB_PATH = BASE_DIR / 'todo.db'
 SQLITE_HEADER = b'SQLite format 3\x00'
 
@@ -9,7 +9,7 @@ SQLITE_HEADER = b'SQLite format 3\x00'
 # will write after main function is done
 
 def get_connection() -> sqlite3.Connection: #this basically just means that the function is expected to return the sqlite3 connection
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(f'file:{DB_PATH}?mode=rw', uri=True)
     conn.row_factory = sqlite3.Row
     return conn
 
