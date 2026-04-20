@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify, request
 from routes.task_database import add_task as add_task_to_db
 from routes.task_database import init_db, list_tasks as list_tasks_from_db
 
-task_bp = Blueprint('Task_Adder', __name__, url_prefix='/task_file')
+task_bp = Blueprint('Tasks', __name__, url_prefix='/task_file')
 
 init_db()
 
@@ -11,7 +11,7 @@ init_db()
 def list_tasks():
     return jsonify(list_tasks_from_db())
 
-@task_bp.post('/taskadd')
+@task_bp.post('/task_add')
 def add_task():
     data = request.get_json(silent = True)
     if not data: #request body was missing or invalid JSON
