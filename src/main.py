@@ -21,6 +21,10 @@ def create_app():
     def planner():
         return send_file(BASE_DIR / 'templates' / 'planner.html', mimetype='text/html; charset=utf-8')
     
+    @app.get('/task/add') #should call the db
+    def tasks_db():
+        return send_file(BASE_DIR / 'routes' / 'addtask.py', mimetype='application/python')
+    
     @app.get('/task_store') #returns nothing btw
     def wtfisthis():
         return send_file(BASE_DIR / 'routes' / 'task_store.py', mimetype='application/python')
