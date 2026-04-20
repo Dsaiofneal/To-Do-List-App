@@ -1,13 +1,13 @@
 from pathlib import Path
 from flask import Flask, jsonify, send_file
 
-from routes.tasks import tasks_bp
+from routes.task import task_bp
 
 BASE_DIR = Path(__file__).resolve().parent
 
 def create_app():
     app = Flask(__name__)
-    app.register_blueprint(tasks_bp)
+    app.register_blueprint(task_bp)
     
     @app.get('/')
     def home():
@@ -20,14 +20,6 @@ def create_app():
     @app.get('/planner.html') 
     def planner():
         return send_file(BASE_DIR / 'templates' / 'planner.html', mimetype='text/html; charset=utf-8')
-    
-    @app.get('/task/add') #should call the db
-    def tasks_db():
-        return send_file(BASE_DIR / 'routes' / 'addtask.py', mimetype='application/python')
-    
-    @app.get('/task_store') #returns nothing btw
-    def wtfisthis():
-        return send_file(BASE_DIR / 'routes' / 'task_store.py', mimetype='application/python')
     
     return app
     

@@ -38,7 +38,7 @@ def add_task(title: str) -> dict:
         
         row = conn.execute(
             'SELECT id, title, completed, created_at FROM tasks WHERE id = ?',
-            (task_id)
+            (task_id,) #makes it a tuple
         ).fetchone()
         
     return {
