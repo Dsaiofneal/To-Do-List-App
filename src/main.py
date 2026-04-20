@@ -13,13 +13,17 @@ def create_app():
     def home():
         return send_file(BASE_DIR / 'templates' / 'Index.html', mimetype='text/html; charset=utf-8')
     
-    @app.get('/index.html')
+    @app.get('/index.html') #catches the weird issue with the html link
     def link_home():
         return send_file(BASE_DIR / 'templates' / 'Index.html', mimetype='text/html; charset=utf-8')
     
-    @app.get('/planner.html')
+    @app.get('/planner.html') 
     def planner():
         return send_file(BASE_DIR / 'templates' / 'planner.html', mimetype='text/html; charset=utf-8')
+    
+    @app.get('/task_store') #returns nothing btw
+    def wtfisthis():
+        return send_file(BASE_DIR / 'routes' / 'task_store.py', mimetype='application/python')
     
     return app
     
