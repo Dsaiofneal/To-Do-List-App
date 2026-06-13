@@ -1,0 +1,7 @@
+flask
+pywebview
+
+# These are required for pywebview to work on linux
+PyQt6
+qtpy
+PyQt6-WebEngine

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>tasking. | Edit Task</title>
+        <link rel="stylesheet" href="/static/css/styles.css" />
+        <style>
+            .edit-card {
+                max-width: 600px;
+                margin: 40px auto;
+            }
+            .form-group {
+                margin-bottom: 20px;
+                text-align: left;
+            }
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                color: #a78bfa;
+                font-weight: bold;
+            }
+            select {
+                width: 100%;
+                padding: 14px;
+                border: 1px solid #374151;
+                border-radius: 10px;
+                background-color: #111827;
+                color: #f3f4f6;
+                outline: none;
+                appearance: none;
+            }
+            .button-group {
+                display: flex;
+                gap: 15px;
+                margin-top: 30px;
+            }
+            .save-btn {
+                flex: 2;
+                background-color: #7c3aed;
+                color: white;
+                border: none;
+                padding: 14px;
+                border-radius: 10px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .delete-btn {
+                flex: 1;
+                background-color: #ef4444;
+                color: white;
+                border: none;
+                padding: 14px;
+                border-radius: 10px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .save-btn:hover {
+                background-color: #6d28d9;
+            }
+            .delete-btn:hover {
+                background-color: #dc2626;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="navbar">
+            <h1 class="logo">Tasking</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="planner.html">Planner</a>
+            </nav>
+        </header>
+
+        <main class="planner-page">
+            <div class="todo-card edit-card">
+                <h3>Edit Task</h3>
+                <form id="editForm" class="task-form">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="editTitle" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="editDescription"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select id="editStatus">
+                            <option value="pending">Pending</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select id="editPriority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="button-group">
+                        <button
+                            type="button"
+                            class="save-btn"
+                            onclick="saveTask()"
+                        >
+                            Save Changes
+                        </button>
+                        <button
+                            type="button"
+                            class="delete-btn"
+                            onclick="deleteTask()"
+                        >
+                            Delete
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 tasking.</p>
+        </footer>
+
+        <script src="/static/js/task.js"></script>
+    </body>
+</html>

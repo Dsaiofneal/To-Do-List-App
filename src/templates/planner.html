@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>tasking. | Planner</title>
+        <link rel="stylesheet" href="/static/css/styles.css" />
+        <style>
+            /* Local overrides for specialized planner layout */
+            .task-input-group {
+                display: flex;
+                gap: 12px;
+                margin-bottom: 25px;
+            }
+            .task-input-group input {
+                flex-grow: 1;
+                padding: 14px;
+                border: 1px solid #374151;
+                border-radius: 10px;
+                background-color: #111827;
+                color: #f3f4f6;
+                font-size: 1rem;
+                outline: none;
+            }
+            .task-input-group input:focus {
+                border-color: #a78bfa;
+            }
+            .add-btn {
+                background-color: #7c3aed;
+                color: white;
+                border: none;
+                padding: 14px 24px;
+                border-radius: 10px;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            .add-btn:hover {
+                background-color: #6d28d9;
+                transform: translateY(-1px);
+            }
+            .sort-controls {
+                display: none;
+                justify-content: flex-end;
+                gap: 10px;
+                margin-bottom: 15px;
+                align-items: center;
+            }
+            .sort-controls span {
+                color: #9ca3af;
+                font-size: 0.9rem;
+            }
+            .sort-select {
+                background-color: #1f2937;
+                color: #e5e7eb;
+                border: 1px solid #374151;
+                padding: 6px 12px;
+                border-radius: 6px;
+                outline: none;
+                cursor: pointer;
+            }
+            .task-list {
+                margin-top: 10px;
+                list-style: none;
+                padding: 0;
+                text-align: left;
+            }
+            .task-item {
+                background-color: #111827;
+                padding: 16px;
+                margin-bottom: 12px;
+                border-radius: 12px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border: 1px solid #374151;
+                transition: 0.2s;
+                text-decoration: none;
+                color: inherit;
+            }
+            .task-item:hover {
+                border-color: #a78bfa;
+                background-color: #1a2233;
+                cursor: pointer;
+            }
+            .task-info {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+            .task-title {
+                color: #e5e7eb;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+            .task-badges {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+            }
+            .badge {
+                padding: 3px 8px;
+                border-radius: 5px;
+                font-size: 0.75rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .priority-high {
+                background-color: rgba(239, 68, 68, 0.2);
+                color: #ef4444;
+                border-color: #ef4444;
+            }
+            .priority-medium {
+                background-color: rgba(245, 158, 11, 0.2);
+                color: #f59e0b;
+                border-color: #f59e0b;
+            }
+            .priority-low {
+                background-color: rgba(16, 185, 129, 0.2);
+                color: #10b881;
+                border-color: #10b881;
+            }
+            .status-badge {
+                background-color: #1f2937;
+                color: #a78bfa;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="navbar">
+            <h1 class="logo">Tasking</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="planner.html">Planner</a>
+            </nav>
+        </header>
+
+        <main class="planner-page">
+            <section class="planner-header">
+                <h2>My Planner</h2>
+                <p>Write down your tasks for today.</p>
+            </section>
+
+            <section class="todo-container centered-planner">
+                <div class="todo-card planner-form-card">
+                    <h3>Today's Tasks</h3>
+                    <div class="task-input-group">
+                        <input
+                            type="text"
+                            id="taskInput"
+                            placeholder="What needs to be done?"
+                        />
+                        <button class="add-btn" id="addBtn">Add Task</button>
+                    </div>
+                    <div id="sortContainer" class="sort-controls">
+                        <span>Sort by:</span>
+                        <select id="sortSelect" class="sort-select">
+                            <option value="none">Default</option>
+                            <option value="priority">Priority</option>
+                            <option value="status">Status</option>
+                        </select>
+                    </div>
+                    <ul id="taskList" class="task-list"></ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 tasking.</p>
+        </footer>
+
+        <script src="/static/js/planner.js"></script>
+    </body>
+</html>
